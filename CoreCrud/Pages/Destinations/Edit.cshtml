@@ -1,0 +1,65 @@
+﻿@page
+@model CoreCrud.Pages.Destinations.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Destination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Destination.id" />
+            <div class="form-group">
+                <label asp-for="Destination.Name" class="control-label"></label>
+                <input asp-for="Destination.Name" class="form-control" />
+                <span asp-validation-for="Destination.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.AvgTemp" class="control-label"></label>
+                <input asp-for="Destination.AvgTemp" class="form-control" />
+                <span asp-validation-for="Destination.AvgTemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.LanguageSpoken" class="control-label"></label>
+                <input asp-for="Destination.LanguageSpoken" class="form-control" />
+                <span asp-validation-for="Destination.LanguageSpoken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.TotalPopulation" class="control-label"></label>
+                <input asp-for="Destination.TotalPopulation" class="form-control" />
+                <span asp-validation-for="Destination.TotalPopulation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Area" class="control-label"></label>
+                <input asp-for="Destination.Area" class="form-control" />
+                <span asp-validation-for="Destination.Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.AverageTouristRating" class="control-label"></label>
+                <input asp-for="Destination.AverageTouristRating" class="form-control" />
+                <span asp-validation-for="Destination.AverageTouristRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.CountryID" class="control-label"></label>
+                <select asp-for="Destination.CountryID" class="form-control" asp-items="ViewBag.CountryID"></select>
+                <span asp-validation-for="Destination.CountryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
