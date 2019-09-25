@@ -1,0 +1,73 @@
+﻿@page
+@model CoreCRUD3.Pages.Destinations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Destination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Destination.DName" class="control-label"></label>
+                <input asp-for="Destination.DName" class="form-control" />
+                <span asp-validation-for="Destination.DName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Longitude" class="control-label"></label>
+                <input asp-for="Destination.Longitude" class="form-control" />
+                <span asp-validation-for="Destination.Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Latitude" class="control-label"></label>
+                <input asp-for="Destination.Latitude" class="form-control" />
+                <span asp-validation-for="Destination.Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Destination.HasBeach" /> @Html.DisplayNameFor(model => model.Destination.HasBeach))
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Type" class="control-label"></label>
+                <input asp-for="Destination.Type" class="form-control" />
+                <span asp-validation-for="Destination.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Destination.HasAirport" /> @Html.DisplayNameFor(model => model.Destination.HasAirport))
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.AvgCostPerDay" class="control-label"></label>
+                <input asp-for="Destination.AvgCostPerDay" class="form-control" />
+                <span asp-validation-for="Destination.AvgCostPerDay" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Destination.Has5StarHotel" /> @Html.DisplayNameFor(model => model.Destination.Has5StarHotel))
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.CountryId" class="control-label"></label>
+                <select asp-for="Destination.CountryId" class ="form-control" asp-items="ViewBag.CountryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

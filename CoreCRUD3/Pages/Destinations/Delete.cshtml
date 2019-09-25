@@ -1,0 +1,76 @@
+﻿@page
+@model CoreCRUD3.Pages.Destinations.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Destination</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.DName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.DName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.Longitude)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.Longitude)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.Latitude)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.Latitude)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.HasBeach)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.HasBeach)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.HasAirport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.HasAirport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.AvgCostPerDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.AvgCostPerDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.Has5StarHotel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.Has5StarHotel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination.Country.Id)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Destination.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

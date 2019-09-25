@@ -1,0 +1,15 @@
+﻿@page
+@model CoreCRUD3.Pages.CountryProfileModel
+@{
+    ViewData["Title"] = "Country Profile";
+}
+
+<h1>Country Profile</h1>
+<p> This is a list of countries</p>
+<ol>
+    @foreach (var code in Model.Destinations)
+    {
+        <li>@code.Type</li>
+    }
+</ol>
+

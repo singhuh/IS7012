@@ -1,0 +1,84 @@
+﻿@page
+@model CoreCRUD3.Pages.Destinations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].DName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].HasBeach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].HasAirport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].AvgCostPerDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Has5StarHotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Destination) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasBeach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgCostPerDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has5StarHotel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
