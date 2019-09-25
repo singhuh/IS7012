@@ -1,0 +1,72 @@
+﻿@page
+@model CoreCrud.Pages.Destinations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].AvgTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].LanguageSpoken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].TotalPopulation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].AverageTouristRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Destination) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgTemp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageSpoken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPopulation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageTouristRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
