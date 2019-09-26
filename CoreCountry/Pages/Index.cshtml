@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Statistics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Number of Destinations
+                    </td>
+                    <td class="text-right">
+                        @Model.CountOfDestinations
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Number of Countries
+                    </td>
+                    <td class="text-right">
+                        @Model.CountofCountries
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <h1> Some Destination Countries</h1>
+    <ul>
+        <li><a href="http://localhost:62905/CountryProfile?ID=2">France</a></li>
+        <li><a href="http://localhost:62905/CountryProfile?ID=3">India</a> </li>
+        <li><a href="http://localhost:62905/CountryProfile?ID=1">United States</a></li>
+        <li><a href="http://localhost:62905/CountryProfile?ID=4">England</a></li>
+        <li><a href="http://localhost:62905/CountryProfile?ID=5">Germany </a></li>
+    </ul>
+</div>>

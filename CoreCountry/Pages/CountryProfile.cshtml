@@ -1,0 +1,44 @@
+﻿@page
+@model CoreCountry.Pages.CountryProfileModel
+@{
+    ViewData["Title"] = "CountryProfile";
+}
+
+<h1>@Model.Countries.CName</h1>
+
+<table class="table table-bordered table-striped" border="1">
+    <thead>
+        <tr>
+            <th>Destination Id</th>
+            <th>Destination Name</th>
+            <th>Currency</th>
+            <th>Cost</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var code in Model.Countries.Destinations)
+        {
+            <tr>
+                <td>@code.CityCode</td>
+                <td>@code.AvgTemp</td>
+                <td>@code.Type</td>
+                <td>@code.Budget</td>
+                @if (code.Budget <= 1000)
+                {
+                    <td><span class="badge badge-success">Economy</span></td>
+                }
+                else if (code.Budget > 1000 && code.Budget <= 2000)
+                {
+                    <td><span class="badge badge-warning">Worth it</span></td>
+
+                }
+                else if (code.Budget > 2000)
+                {
+                    <td><span class="badge badge-danger">Premium</span></td>
+
+                }
+            </tr>
+        }
+    </tbody>
+</table>

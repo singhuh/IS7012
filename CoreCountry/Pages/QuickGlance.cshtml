@@ -1,0 +1,45 @@
+﻿@page
+@model CoreCountry.Pages.QuickGlanceModel
+@{
+    ViewData["Title"] = "QuickGlance";
+}
+
+<h1>QuickGlance</h1>
+
+<table class="table table-bordered table-striped" border="1">
+    <thead>
+        <tr>
+            <th>Destination Id</th>
+            <th>Destination Name</th>
+            <th>Country Name</th>
+            <th>Cost </th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var code in Model.Destinations)
+        {
+            <tr>
+                <td>@code.Id</td>
+                <td>@code.DName</td>
+                <td>@code.Country.CName</td>
+                <td>@code.Budget</td>
+                @if (code.Budget <= 1000)
+                {
+                    <td><span class="badge badge-success">Value for Money</span></td>
+                }
+                else if (code.Budget > 1000 && code.Budget <= 2000)
+                {
+                    <td><span class="badge badge-warning">Moderate</span></td>
+
+                }
+                else if (code.Budget > 2000)
+                {
+                    <td><span class="badge badge-danger">Expensive</span></td>
+
+                }
+            </tr>
+
+        }
+    </tbody>
+</table>

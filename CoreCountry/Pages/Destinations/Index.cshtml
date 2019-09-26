@@ -1,0 +1,66 @@
+﻿@page
+@model CoreCountry.Pages.Destinations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].DName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Budget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].CityCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].AvgTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].Country)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Destination) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgTemp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

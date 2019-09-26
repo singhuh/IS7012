@@ -1,0 +1,58 @@
+﻿@page
+@model CoreCountry.Pages.Destinations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Destination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Destination.DName" class="control-label"></label>
+                <input asp-for="Destination.DName" class="form-control" />
+                <span asp-validation-for="Destination.DName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Budget" class="control-label"></label>
+                <input asp-for="Destination.Budget" class="form-control" />
+                <span asp-validation-for="Destination.Budget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.CityCode" class="control-label"></label>
+                <input asp-for="Destination.CityCode" class="form-control" />
+                <span asp-validation-for="Destination.CityCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.Type" class="control-label"></label>
+                <input asp-for="Destination.Type" class="form-control" />
+                <span asp-validation-for="Destination.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.AvgTemp" class="control-label"></label>
+                <input asp-for="Destination.AvgTemp" class="form-control" />
+                <span asp-validation-for="Destination.AvgTemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.CountryID" class="control-label"></label>
+                <select asp-for="Destination.CountryID" class ="form-control" asp-items="ViewBag.CountryID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
