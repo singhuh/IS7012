@@ -8,13 +8,16 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Destination</a>
 </p>
 <table class="table" border="1">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Destination[0].DName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination[0].TravelDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Destination[0].Budget)
@@ -39,6 +42,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.DName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Budget)
