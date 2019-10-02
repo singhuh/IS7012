@@ -31,6 +31,7 @@ namespace CoreCountry.Pages.Destinations
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CountryID"] = new SelectList(_context.Country, "Id", "CName");
                 return Page();
             }
 
