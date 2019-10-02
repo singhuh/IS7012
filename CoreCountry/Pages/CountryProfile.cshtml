@@ -1,44 +1,46 @@
 ﻿@page
 @model CoreCountry.Pages.CountryProfileModel
 @{
-    ViewData["Title"] = "CountryProfile";
+    ViewData["Title"] = "Country Profile";
 }
-
-<h1>@Model.Countries.CName</h1>
-
-<table class="table table-bordered table-striped" border="1">
-    <thead>
-        <tr>
-            <th>Destination Id</th>
-            <th>Destination Name</th>
-            <th>Currency</th>
-            <th>Cost</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var code in Model.Countries.Destinations)
-        {
-            <tr>
-                <td>@code.CityCode</td>
-                <td>@code.AvgTemp</td>
-                <td>@code.Type</td>
-                <td>@code.Budget</td>
-                @if (code.Budget <= 1000)
+    <div class="container">
+        <h1>@Model.Countries.CName</h1>
+        <p>The table shows the details of the destinations by country.</p>
+             
+        <table class="table table-bordered table-striped" border="1">
+            <thead>
+                <tr>
+                    <th><b>Destination Id</b></th>
+                    <th><b>Destination Name</b></th>
+                    <th><b>Category</b></th>
+                    <th><b>Package/Person</b></th>
+                    <th><b>Class</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var code in Model.Countries.Destinations)
                 {
-                    <td><span class="badge badge-success">Economy</span></td>
-                }
-                else if (code.Budget > 1000 && code.Budget <= 2000)
-                {
-                    <td><span class="badge badge-warning">Worth it</span></td>
+                    <tr>
+                        <td>@code.CityCode</td>
+                        <td>@code.DName</td>
+                        <td>@code.Type</td>
+                        <td>@code.Budget</td>
+                        @if (code.Budget <= 1000)
+                        {
+                            <td><span class="badge badge-success">Economy</span></td>
+                        }
+                        else if (code.Budget > 1000 && code.Budget <= 2000)
+                        {
+                            <td><span class="badge badge-warning">Business Class</span></td>
 
-                }
-                else if (code.Budget > 2000)
-                {
-                    <td><span class="badge badge-danger">Premium</span></td>
+                        }
+                        else if (code.Budget > 2000)
+                        {
+                            <td><span class="badge badge-danger">Premium</span></td>
 
+                        }
+                    </tr>
                 }
-            </tr>
-        }
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>

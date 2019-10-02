@@ -1,45 +1,56 @@
 ﻿@page
 @model CoreCountry.Pages.QuickGlanceModel
 @{
-    ViewData["Title"] = "QuickGlance";
+    ViewData["Title"] = "Quick Glance";
 }
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="jumbotron text-center">
+                    <h2>Quick Glance at the Country and Destinations</h2>
+                    <h3>Table below shows the summary of the destinations</h3>
+                    <center>
+                        <img src="https://www.mylocally.com/wp-content/uploads/2010/06/philippe.png" alt="glance" class="img-rounded" style="width:30%">
+                    </center>
+                </div>
+                </nav>
+            </header>
+        </body>
+                <h1>Quick Glance</h1>
+                <table class="table table-bordered table-striped" border="1">
+                    <thead>
+                        <tr>
+                            <th><b>Destination Id</b></th>
+                            <th><b>Destination Name</b></th>
+                            <th><b>Country</b></th>
+                            <th><b>Budget/Person</b> </th>
+                            <th><b>Class</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var code in Model.Destinations)
+                        {
+                            <tr>
+                                <td>@code.Id</td>
+                                <td>@code.DName</td>
+                                <td>@code.Country.CName</td>
+                                <td>@code.Budget</td>
+                                @if (code.Budget <= 1500)
+                                {
+                                    <td><span class="badge badge-success">Economic</span></td>
+                                }
+                                else if (code.Budget > 1500 && code.Budget <= 10000)
+                                {
+                                    <td><span class="badge badge-warning">Affordable</span></td>
 
-<h1>QuickGlance</h1>
+                                }
+                                else if (code.Budget > 10000)
+                                {
+                                    <td><span class="badge badge-danger">Premium</span></td>
 
-<table class="table table-bordered table-striped" border="1">
-    <thead>
-        <tr>
-            <th>Destination Id</th>
-            <th>Destination Name</th>
-            <th>Country Name</th>
-            <th>Cost </th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var code in Model.Destinations)
-        {
-            <tr>
-                <td>@code.Id</td>
-                <td>@code.DName</td>
-                <td>@code.Country.CName</td>
-                <td>@code.Budget</td>
-                @if (code.Budget <= 1000)
-                {
-                    <td><span class="badge badge-success">Value for Money</span></td>
-                }
-                else if (code.Budget > 1000 && code.Budget <= 2000)
-                {
-                    <td><span class="badge badge-warning">Moderate</span></td>
+                                }
+                            </tr>
 
-                }
-                else if (code.Budget > 2000)
-                {
-                    <td><span class="badge badge-danger">Expensive</span></td>
-
-                }
-            </tr>
-
-        }
-    </tbody>
-</table>
+                        }
+                    </tbody>
+                </table>

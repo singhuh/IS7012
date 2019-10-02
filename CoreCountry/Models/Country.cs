@@ -25,6 +25,7 @@ namespace CoreCountry.Models
 
         public string Continent { get; set; }
 
+        [Display(Name = "Requires Travel Visa")]
         public bool? RequireTravelVisa { get; set; }
         public ICollection<Destination> Destinations { get; set; }
 
